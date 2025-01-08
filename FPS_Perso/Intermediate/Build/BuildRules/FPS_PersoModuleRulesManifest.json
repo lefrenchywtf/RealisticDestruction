@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"E:\\_3eme annee\\Unreal\\Projects\\FPS_Perso\\Source\\FPS_Perso\\FPS_Perso.Build.cs",
+		"E:\\_3eme annee\\Unreal\\Projects\\FPS_Perso\\Source\\FPS_Perso.Target.cs",
+		"E:\\_3eme annee\\Unreal\\Projects\\FPS_Perso\\Source\\FPS_PersoEditor.Target.cs"
+	],
+	"EngineVersion": "5.4.4"
+}

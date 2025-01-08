@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "FPS_Perso",
+			"Path": "..\\Source\\FPS_Perso.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "FPS_PersoEditor",
+			"Path": "..\\Source\\FPS_PersoEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

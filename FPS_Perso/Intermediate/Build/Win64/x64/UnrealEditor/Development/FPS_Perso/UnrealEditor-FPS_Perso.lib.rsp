@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FPS_Perso.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"E:\_3eme annee\Unreal\Projects\FPS_Perso\Intermediate\Build\Win64\x64\FPS_PersoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"E:\_3eme annee\Unreal\Projects\FPS_Perso\Intermediate\Build\Win64\x64\UnrealEditor\Development\FPS_Perso\FPS_Perso.cpp.obj"
+"E:\_3eme annee\Unreal\Projects\FPS_Perso\Intermediate\Build\Win64\x64\UnrealEditor\Development\FPS_Perso\Default.rc2.res"
+/OUT:"E:\_3eme annee\Unreal\Projects\FPS_Perso\Intermediate\Build\Win64\x64\UnrealEditor\Development\FPS_Perso\UnrealEditor-FPS_Perso.lib"
