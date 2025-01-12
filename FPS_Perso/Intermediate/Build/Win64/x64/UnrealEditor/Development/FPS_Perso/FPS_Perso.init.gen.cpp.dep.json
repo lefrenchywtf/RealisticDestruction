@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\_3eme annee\\projet perso\\realisticdestruction\\fps_perso\\intermediate\\build\\win64\\unrealeditor\\inc\\fps_perso\\uht\\fps_perso.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\_3eme annee\\projet perso\\realisticdestruction\\fps_perso\\intermediate\\build\\win64\\x64\\fps_persoeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "g:\\_3eme annee\\projet perso\\realisticdestruction\\fps_perso\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\fps_perso\\definitions.fps_perso.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
