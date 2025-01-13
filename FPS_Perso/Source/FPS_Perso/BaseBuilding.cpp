@@ -4,6 +4,7 @@
 #include "BaseBuilding.h"
 #include "GeometryCollection/GeometryCollectionComponent.h"
 #include "Field/FieldSystemComponent.h"
+#include "Field/FieldSystemActor.h"
 
 // Sets default values
 ABaseBuilding::ABaseBuilding()
@@ -23,6 +24,28 @@ ABaseBuilding::ABaseBuilding()
 	MasterField = CreateDefaultSubobject<UChildActorComponent>("MasterField");
 	MasterField->SetupAttachment(Anchor);
 }
+
+//void ABaseBuilding::OnConstruction(const FTransform& Transform)
+//{
+//	Super::OnConstruction(Transform);
+//	TArray < USceneComponent*, FDefaultAllocator> AnchorFields;
+//	Fields->GetChildrenComponents(false, AnchorFields);
+//
+//	for (USceneComponent* Child : AnchorFields)
+//	{
+//		UChildActorComponent* ChildActor = Cast<UChildActorComponent>(Child);
+//		if (ChildActor)
+//		{
+//			AFieldSystemActor* Field = Cast<AFieldSystemActor>(ChildActor->GetChildActor());
+//			if (Field && Building)
+//			{
+//				Building->InitializationFields.Add(Field);
+//				UE_LOG(LogTemp, Warning, TEXT("oe"));
+//			}
+//		}
+//	}
+//}
+
 
 // Called when the game starts or when spawned
 void ABaseBuilding::BeginPlay()
@@ -57,10 +80,10 @@ void ABaseBuilding::HandleBreakEvent(const FChaosBreakEvent& BreakEvent)
 		if (Building)
 		{
 			//UE_LOG(LogTemp, Warning, TEXT("yee"));
-			FGeometryCollection* collection = Building->GetRestCollection()->GetGeometryCollection().Get();
-			collection->Visible[BreakEvent.Index] = false;
-			Building->SetRestState({ ConvertTransform(collection->Transform[BreakEvent.Index]) }); 
-			Building->MarkRenderStateDirty();
+			//FGeometryCollection* collection = Building->GetRestCollection()->GetGeometryCollection().Get();
+			//collection->Visible[BreakEvent.Index] = false;
+			//Building->SetRestState({ ConvertTransform(collection->Transform[BreakEvent.Index]) }); 
+			//Building->MarkRenderStateDirty();
 		}
 		PlayerDestruction = false;
 	}
