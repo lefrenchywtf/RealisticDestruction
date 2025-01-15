@@ -47,6 +47,7 @@
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\InputCore\UnrealEditor-InputCore.lib"
 "..\Plugins\EnhancedInput\Intermediate\Build\Win64\x64\UnrealEditor\Development\EnhancedInput\UnrealEditor-EnhancedInput.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\GeometryCollectionEngine\UnrealEditor-GeometryCollectionEngine.lib"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\FieldSystemEngine\UnrealEditor-FieldSystemEngine.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"

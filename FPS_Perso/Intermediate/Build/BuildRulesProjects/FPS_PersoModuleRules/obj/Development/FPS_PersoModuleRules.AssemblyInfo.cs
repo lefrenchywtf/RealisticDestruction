@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FPS_PersoModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f6bb62bb1468b6dce3dd02882c30c3fcb143041")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4335bb3d29039c1b51c177c6183c58dc9ef377b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("FPS_PersoModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FPS_PersoModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

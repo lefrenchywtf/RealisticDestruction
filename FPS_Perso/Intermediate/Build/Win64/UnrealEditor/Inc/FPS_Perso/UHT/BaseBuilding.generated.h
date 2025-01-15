@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 class USceneComponent;
 struct FChaosBreakEvent;
 #ifdef FPS_PERSO_BaseBuilding_generated_h
@@ -16,16 +17,23 @@ struct FChaosBreakEvent;
 #endif
 #define FPS_PERSO_BaseBuilding_generated_h
 
-#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void TriggerField_Implementation(USceneComponent* CurrentAnchor); \
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FSupportedStructure_Statics; \
+	FPS_PERSO_API static class UScriptStruct* StaticStruct();
+
+
+template<> FPS_PERSO_API UScriptStruct* StaticStruct<struct FSupportedStructure>();
+
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void TriggerField_Implementation(AActor* DestructionField); \
 	virtual bool IsDestructionInAnchor_Implementation(USceneComponent* CurrentAnchor, FVector BreakLocation); \
 	DECLARE_FUNCTION(execTriggerField); \
 	DECLARE_FUNCTION(execIsDestructionInAnchor); \
 	DECLARE_FUNCTION(execHandleBreakEvent);
 
 
-#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_CALLBACK_WRAPPERS
-#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_CALLBACK_WRAPPERS
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABaseBuilding(); \
 	friend struct Z_Construct_UClass_ABaseBuilding_Statics; \
@@ -34,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ABaseBuilding)
 
 
-#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ABaseBuilding(ABaseBuilding&&); \
@@ -46,14 +54,14 @@ public: \
 	NO_API virtual ~ABaseBuilding();
 
 
-#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_9_PROLOG
-#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_GENERATED_BODY \
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_27_PROLOG
+#define FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_CALLBACK_WRAPPERS \
-	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_INCLASS_NO_PURE_DECLS \
-	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_12_ENHANCED_CONSTRUCTORS \
+	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_CALLBACK_WRAPPERS \
+	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_INCLASS_NO_PURE_DECLS \
+	FID_FPS_Perso_Source_FPS_Perso_BaseBuilding_h_30_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

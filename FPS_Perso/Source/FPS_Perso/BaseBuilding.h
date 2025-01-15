@@ -6,6 +6,24 @@
 #include "GameFramework/Actor.h"
 #include "BaseBuilding.generated.h"
 
+USTRUCT(BlueprintType)
+struct FSupportedStructure
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UChildActorComponent* TriggerField;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<USceneComponent*> SupportFields;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int DestroyedAdjacentToTrigger = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float PercentageToDestroy = .5f;
+};
+
 UCLASS()
 class FPS_PERSO_API ABaseBuilding : public AActor
 {
@@ -15,21 +33,28 @@ public:
 	// Sets default values for this actor's properties
 	ABaseBuilding();
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	class UGeometryCollectionComponent* Building;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	USceneComponent* Fields;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	UChildActorComponent* Anchor;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	UChildActorComponent* MasterField;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<FSupportedStructure> Structures;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	void RemoveAnchorFromStructures(USceneComponent* DestroyedAnchor);
+
+	void CheckStructures();
 
 	//virtual void OnConstruction(const FTransform& Transform) override;
 
@@ -44,7 +69,7 @@ public:
 	bool IsDestructionInAnchor(USceneComponent* CurrentAnchor, FVector BreakLocation);
 
 	UFUNCTION(BlueprintNativeEvent)
-	void TriggerField(USceneComponent* CurrentAnchor);
+	void TriggerField(AActor* DestructionField);
 
 	UPROPERTY(BlueprintReadWrite)
 	bool PlayerDestruction = false;

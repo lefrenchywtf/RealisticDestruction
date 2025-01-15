@@ -61,16 +61,6 @@ void ABaseBuilding::Tick(float DeltaTime)
 
 }
 
-FTransform ConvertTransform(const FTransform3f& Transform3f)
-{
-	// Convertir les composants en double précision
-	return FTransform(
-		FQuat(Transform3f.GetRotation()),    // Rotation
-		FVector(Transform3f.GetTranslation()), // Translation
-		FVector(Transform3f.GetScale3D())     // Scale
-	);
-}
-
 void ABaseBuilding::HandleBreakEvent(const FChaosBreakEvent& BreakEvent)
 {
 	TArray < USceneComponent*, FDefaultAllocator> AnchorFields;
@@ -79,11 +69,8 @@ void ABaseBuilding::HandleBreakEvent(const FChaosBreakEvent& BreakEvent)
 	{
 		if (Building)
 		{
-			//UE_LOG(LogTemp, Warning, TEXT("yee"));
-			//FGeometryCollection* collection = Building->GetRestCollection()->GetGeometryCollection().Get();
-			//collection->Visible[BreakEvent.Index] = false;
-			//Building->SetRestState({ ConvertTransform(collection->Transform[BreakEvent.Index]) }); 
-			//Building->MarkRenderStateDirty();
+			// Here it would be nice to implement something that makes the player
+			// destructed fragment to get destroyed, or at least disappear
 		}
 		PlayerDestruction = false;
 	}
@@ -91,21 +78,33 @@ void ABaseBuilding::HandleBreakEvent(const FChaosBreakEvent& BreakEvent)
 	{
 		if (IsDestructionInAnchor(Child, BreakEvent.Location))
 		{
-			TriggerField(Child);
+			USceneComponent* DestructionField = Child->GetChildComponent(0);
+			if (DestructionField)
+			{
+				UChildActorComponent* DestructionActor = Cast<UChildActorComponent>(DestructionField);
+				if (DestructionActor)
+				{
+					TriggerField(DestructionActor->GetChildActor());
+				}
+				
+			}
 			break;
 		}
-		//if (Child->IsA<UChildActorComponent>())
-		//{
-		//	AActor* ChildActor = (Cast<UChildActorComponent>(Child))->GetChildActor();
-		//	if (ChildActor->IsA<UFieldSystemComponent>())
-		//	{
-		//		UFieldSystemComponent* CurrentField = Cast<UFieldSystemComponent>(ChildActor);
-		//		if (CurrentField)
-		//		{
-		//			CurrentField->cetrigg
-		//		}
-		//	}
-		//}
+	}
+}
+
+void ABaseBuilding::RemoveAnchorFromStructures(USceneComponent* DestroyedAnchor)
+{
+	if (Structures.Num())
+	{
+		for (FSupportedStructure Structure : Structures)
+		{
+			int32 FieldIndex;
+			if (Structure.SupportFields.Find(DestroyedAnchor, FieldIndex))
+			{
+				Structure.SupportFields[FieldIndex] = nullptr;
+			}
+		}
 	}
 }
 
@@ -114,7 +113,35 @@ bool ABaseBuilding::IsDestructionInAnchor_Implementation(USceneComponent* Curren
 	return false;
 }
 
-void ABaseBuilding::TriggerField_Implementation(USceneComponent* CurrentAnchor)
+void ABaseBuilding::TriggerField_Implementation(AActor* DestructionField)
 {
 
+}
+
+
+void ABaseBuilding::CheckStructures()
+{
+	for (FSupportedStructure Structure : Structures)
+	{
+		int nullCount = 0;
+		int adjacentCount = 0;
+
+		for (int i = 0; i < Structure.SupportFields.Num(); i++)
+		{
+			if (!Structure.SupportFields[i])
+			{
+				nullCount++;
+				adjacentCount++;
+				if (nullCount / (float)Structure.SupportFields.Num() > Structure.PercentageToDestroy ||
+					adjacentCount >= Structure.DestroyedAdjacentToTrigger)
+				{
+					TriggerField(Structure.TriggerField->GetChildActor());
+				}
+			}
+			else
+			{
+				adjacentCount = 0;
+			}
+		}
+	}
 }
