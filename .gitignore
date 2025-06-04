@@ -72,3 +72,4 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+FPS_Perso/Binaries/Win64/FPS_Perso-Win64-Shipping.pdb

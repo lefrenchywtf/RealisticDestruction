@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\projet perso\\realisticdestruction\\fps_perso\\source\\fps_perso\\fps_perso.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\projet perso\\realisticdestruction\\fps_perso\\intermediate\\build\\win64\\x64\\fps_perso\\shipping\\engine\\sharedpch.engine.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\projet perso\\realisticdestruction\\fps_perso\\intermediate\\build\\win64\\x64\\unrealgame\\shipping\\fps_perso\\definitions.fps_perso.h",
+            "f:\\projet perso\\realisticdestruction\\fps_perso\\source\\fps_perso\\fps_perso.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
